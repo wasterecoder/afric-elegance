@@ -89,7 +89,7 @@ const Contact = () => {
                   <MapPin size={24} className="text-gold mr-4 mt-1" />
                   <div>
                     <h3 className="font-bold mb-1">Our Location</h3>
-                    <p>123 Fashion Avenue, Suite 101<br />Lagos, Nigeria</p>
+                    <p>No 18, Idowu Estate<br />Ajah, Lagos State, Nigeria</p>
                   </div>
                 </div>
                 
@@ -97,7 +97,7 @@ const Contact = () => {
                   <Phone size={24} className="text-gold mr-4 mt-1" />
                   <div>
                     <h3 className="font-bold mb-1">Phone</h3>
-                    <p>+234 123 456 7890<br />+234 987 654 3210</p>
+                    <p>08168334381</p>
                   </div>
                 </div>
                 

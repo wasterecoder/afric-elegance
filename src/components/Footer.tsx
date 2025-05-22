@@ -45,11 +45,11 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <MapPin size={18} className="mr-2 mt-1 flex-shrink-0" />
-                <span>123 Fashion Avenue, Suite 101<br />Lagos, Nigeria</span>
+                <span>No 18, Idowu Estate<br />Ajah, Lagos State, Nigeria</span>
               </li>
               <li className="flex items-center">
                 <Phone size={18} className="mr-2 flex-shrink-0" />
-                <span>+234 123 456 7890</span>
+                <span>08168334381</span>
               </li>
               <li className="flex items-center">
                 <Mail size={18} className="mr-2 flex-shrink-0" />
