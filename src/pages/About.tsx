@@ -1,6 +1,8 @@
 
 import React from 'react';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import { MapPin } from 'lucide-react';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const About = () => {
   const values = [
@@ -45,7 +47,7 @@ const About = () => {
     },
     {
       year: "2023",
-      event: "Opening of flagship store and design studio"
+      event: "Opening of flagship store and design studio in Ajah, Lagos"
     }
   ];
 
@@ -58,6 +60,10 @@ const About = () => {
           <p className="text-xl max-w-3xl mx-auto">
             Celebrating African beauty and heritage through elegant fashion design
           </p>
+          <div className="flex items-center justify-center mt-4 text-gold">
+            <MapPin className="mr-2" size={20} />
+            <span>Ajah, Lagos State, Nigeria</span>
+          </div>
         </div>
       </section>
 
@@ -68,10 +74,10 @@ const About = () => {
             <div>
               <h2 className="section-title">About Afric Chic Elegance</h2>
               <p className="mb-6">
-                Founded in 2015, Afric Chic Elegance was born from a passion to celebrate the rich cultural heritage of Africa through contemporary fashion. Our founder, with a background in traditional African textiles and modern fashion design, sought to create a brand that would bridge the gap between cultural authenticity and modern elegance.
+                Founded in 2015, Afric Chic Elegance was born from a passion to celebrate the rich cultural heritage of Africa through contemporary fashion. Our founder, Oluwaseun Adeleke, with a background in traditional African textiles and modern fashion design, sought to create a brand that would bridge the gap between cultural authenticity and modern elegance.
               </p>
               <p className="mb-6">
-                What began as a small atelier with a handful of dedicated artisans has grown into a recognized name in African fashion, known for our exquisite craftsmanship and innovative designs that honor traditional techniques.
+                What began as a small atelier in Ajah, Lagos with a handful of dedicated artisans has grown into a recognized name in African fashion, known for our exquisite craftsmanship and innovative designs that honor traditional techniques.
               </p>
               <p>
                 Today, we continue to push the boundaries of African fashion, bringing the continent's rich textile heritage to the global stage while maintaining the highest standards of quality and ethical production.
@@ -141,48 +147,34 @@ const About = () => {
       {/* Team */}
       <section className="py-20 bg-muted/20">
         <div className="container mx-auto">
-          <h2 className="section-title text-center mx-auto after:left-1/2 after:-translate-x-1/2">Meet Our Team</h2>
+          <h2 className="section-title text-center mx-auto after:left-1/2 after:-translate-x-1/2">Our Founder</h2>
           <p className="text-center mb-12 max-w-3xl mx-auto">
-            Our talented team of designers, tailors, and artisans bring years of experience and passion to every piece we create.
+            Meet the visionary behind Afric Chic Elegance
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="max-w-2xl mx-auto">
             <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-              <img 
-                src="/images/team1.jpg" 
-                alt="Team Member" 
-                className="w-full h-80 object-cover"
-              />
-              <div className="p-6 text-center">
-                <h3 className="text-xl font-bold text-burgundy">Amara Okafor</h3>
-                <p className="text-gold mb-2">Founder & Creative Director</p>
-                <p className="text-sm text-muted-foreground">With over 15 years in fashion design, Amara brings her vision of cultural elegance to life through Afric Chic Elegance.</p>
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-              <img 
-                src="/images/team2.jpg" 
-                alt="Team Member" 
-                className="w-full h-80 object-cover"
-              />
-              <div className="p-6 text-center">
-                <h3 className="text-xl font-bold text-burgundy">Kofi Mensah</h3>
-                <p className="text-gold mb-2">Master Tailor</p>
-                <p className="text-sm text-muted-foreground">Kofi's precision and expertise in traditional and contemporary tailoring techniques are evident in every garment.</p>
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-              <img 
-                src="/images/team3.jpg" 
-                alt="Team Member" 
-                className="w-full h-80 object-cover"
-              />
-              <div className="p-6 text-center">
-                <h3 className="text-xl font-bold text-burgundy">Zara Adesina</h3>
-                <p className="text-gold mb-2">Design Consultant</p>
-                <p className="text-sm text-muted-foreground">Zara specializes in fabric selection and pattern development, bringing innovation to traditional African textiles.</p>
+              <div className="grid grid-cols-1 md:grid-cols-3">
+                <div className="md:col-span-1">
+                  <Avatar className="w-full h-full rounded-none">
+                    <AvatarImage src="/images/founder.jpg" alt="Oluwaseun Adeleke" className="object-cover" />
+                    <AvatarFallback className="text-3xl">OA</AvatarFallback>
+                  </Avatar>
+                </div>
+                <div className="p-8 md:col-span-2">
+                  <h3 className="text-2xl font-bold text-burgundy">Oluwaseun Adeleke</h3>
+                  <p className="text-gold mb-3">Founder & Creative Director</p>
+                  <div className="flex items-center text-sm text-muted-foreground mb-4">
+                    <MapPin size={16} className="mr-1" />
+                    <span>Ajah, Lagos State, Nigeria</span>
+                  </div>
+                  <p className="text-muted-foreground">
+                    With over 15 years in fashion design, Oluwaseun brings her vision of cultural elegance to life through Afric Chic Elegance. Combining traditional African textile knowledge with contemporary design principles, she has built a brand that celebrates heritage while embracing modern aesthetics.
+                  </p>
+                  <p className="text-muted-foreground mt-4">
+                    Her passion for preserving African cultural identity through fashion has earned her recognition across the industry, and she continues to mentor upcoming designers to ensure the legacy of African fashion endures.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
