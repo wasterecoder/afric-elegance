@@ -1,11 +1,11 @@
 
 import React from 'react';
-import { SewingMachine, Ruler, Palette, Fabric } from 'lucide-react';
+import { Scissors, Ruler, Palette, PenTool } from 'lucide-react';
 
 const TrainingSection = () => {
   const benefits = [
     {
-      icon: <Fabric className="h-12 w-12 text-gold" />,
+      icon: <PenTool className="h-12 w-12 text-gold" />,
       title: "Fabric Knowledge",
       description: "Learn about different African fabrics, their origins, and how to select the right ones for your designs."
     },
@@ -15,7 +15,7 @@ const TrainingSection = () => {
       description: "Master the art of creating custom patterns that celebrate the African female form."
     },
     {
-      icon: <SewingMachine className="h-12 w-12 text-gold" />,
+      icon: <Scissors className="h-12 w-12 text-gold" />,
       title: "Professional Sewing",
       description: "Develop advanced sewing techniques specific to African attire construction."
     },
