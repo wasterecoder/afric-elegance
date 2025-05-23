@@ -41,10 +41,10 @@ const designItems: DesignItem[] = [
   },
   {
     id: 4,
-    name: "Vintage Bloom Set",
+    name: "BW Classic Jumpsuit",
     price: 25000,
     image: "/lovable-uploads/d001125d-920c-4a3b-a160-8cb621e01746.png",
-    category: "Sets",
+    category: "Jumpsuits",
     sizes: "Size 6-12"
   },
   {
@@ -83,6 +83,7 @@ const designItems: DesignItem[] = [
 
 const DesignGallery = () => {
   const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [selectedItem, setSelectedItem] = useState<DesignItem | null>(null);
 
   useEffect(() => {
     // Check if all images can load properly
@@ -99,6 +100,20 @@ const DesignGallery = () => {
       .then(() => setImagesLoaded(true))
       .catch((err) => console.error("Some images failed to load:", err));
   }, []);
+
+  const handleViewDetails = (item: DesignItem) => {
+    setSelectedItem(item);
+  };
+
+  const handleOrderWhatsApp = (item: DesignItem) => {
+    const message = `Hello! I'm interested in ordering the ${item.name} (${item.sizes}) for ₦${item.price.toLocaleString()}. Please provide more details about availability and ordering process.`;
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/2348168334381?text=${encodedMessage}`, '_blank');
+  };
+
+  const closeDetails = () => {
+    setSelectedItem(null);
+  };
 
   return (
     <section className="py-20 bg-muted/30" id="designs">
@@ -138,7 +153,12 @@ const DesignGallery = () => {
                 <p className="text-xs text-burgundy/70 mb-4">{item.sizes}</p>
               </CardContent>
               <CardFooter className="px-6 pb-6 pt-0">
-                <button className="w-full btn-secondary">View Details</button>
+                <button 
+                  onClick={() => handleViewDetails(item)}
+                  className="w-full btn-secondary"
+                >
+                  View Details
+                </button>
               </CardFooter>
             </Card>
           ))}
@@ -148,6 +168,70 @@ const DesignGallery = () => {
           <Link to="/shop" className="btn-primary inline-flex">View All Designs</Link>
         </div>
       </div>
+
+      {/* Product Details Modal */}
+      {selectedItem && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto animate-scale-in">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-2xl font-playfair font-bold text-burgundy">{selectedItem.name}</h3>
+                <button 
+                  onClick={closeDetails}
+                  className="text-gray-500 hover:text-gray-700 text-2xl"
+                >
+                  ×
+                </button>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="h-96 overflow-hidden rounded-lg">
+                  <img 
+                    src={selectedItem.image} 
+                    alt={selectedItem.name} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
+                <div className="space-y-4">
+                  <div>
+                    <span className="bg-gold text-black text-lg font-bold px-4 py-2 rounded-full flex items-center w-fit">
+                      <Tag size={16} className="mr-2" />
+                      ₦{selectedItem.price.toLocaleString()}
+                    </span>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold text-burgundy mb-2">Category:</h4>
+                    <p className="text-muted-foreground">{selectedItem.category}</p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold text-burgundy mb-2">Available Sizes:</h4>
+                    <p className="text-muted-foreground">{selectedItem.sizes}</p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold text-burgundy mb-2">Description:</h4>
+                    <p className="text-muted-foreground">
+                      Handcrafted with premium African fabrics, this elegant piece combines traditional aesthetics with modern design. Perfect for special occasions and celebrations.
+                    </p>
+                  </div>
+                  
+                  <div className="pt-4">
+                    <button 
+                      onClick={() => handleOrderWhatsApp(selectedItem)}
+                      className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-md transition-colors duration-300 flex items-center justify-center"
+                    >
+                      Order on WhatsApp
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

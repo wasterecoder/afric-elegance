@@ -1,5 +1,6 @@
 
 import React from 'react';
+import StudioMap from './StudioMap';
 
 const AboutSection = () => {
   return (
@@ -36,6 +37,9 @@ const AboutSection = () => {
           </div>
         </div>
       </div>
+      
+      {/* Studio Map Section */}
+      <StudioMap />
     </section>
   );
 };

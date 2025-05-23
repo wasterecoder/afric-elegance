@@ -12,8 +12,9 @@ interface DesignItem {
   description?: string;
 }
 
-// Updated design items for the shop page with appropriate images for each category
+// Updated design items with properly categorized images
 const allDesigns: DesignItem[] = [
+  // Gowns
   {
     id: 1,
     name: "Royal Ankara Gown",
@@ -22,22 +23,7 @@ const allDesigns: DesignItem[] = [
     category: "Gowns",
     description: "Elegant floor-length gown made with premium Ankara fabric, perfect for special occasions."
   },
-  {
-    id: 2,
-    name: "Kente Fusion Wrap",
-    price: 27500,
-    image: "/lovable-uploads/a1e66d34-6a00-419f-83e8-73513d704f5d.png",
-    category: "Wraps",
-    description: "Versatile wrap skirt featuring traditional Kente patterns with modern styling."
-  },
-  {
-    id: 3,
-    name: "Modern Dashiki Set",
-    price: 32000,
-    image: "/lovable-uploads/d001125d-920c-4a3b-a160-8cb621e01746.png",
-    category: "Sets",
-    description: "Contemporary two-piece outfit inspired by traditional Dashiki patterns."
-  },
+  // Dresses
   {
     id: 4,
     name: "Elegant Adire Dress",
@@ -47,21 +33,22 @@ const allDesigns: DesignItem[] = [
     description: "Mid-length dress featuring hand-dyed Adire fabric with intricate patterns."
   },
   {
-    id: 5,
-    name: "Traditional Aso-Oke",
-    price: 40000,
-    image: "/lovable-uploads/9914de1d-6f7e-4c69-b436-6c7691a91de9.png",
-    category: "Traditional",
-    description: "Hand-woven Aso-Oke ensemble, perfect for ceremonial and special events."
+    id: 12,
+    name: "Batik Pattern Dress",
+    price: 26500,
+    image: "/lovable-uploads/d094b977-820e-48fb-8f37-9980cb9d9986.png",
+    category: "Dresses",
+    description: "Elegant dress featuring traditional batik patterns with modern silhouette."
   },
   {
-    id: 6,
-    name: "Contemporary Kaftan",
-    price: 31000,
+    id: 13,
+    name: "Chantilly X Crepe Dress",
+    price: 30000,
     image: "/lovable-uploads/db2cf8e1-1161-49da-b0fd-d8882e055049.png",
-    category: "Kaftans",
-    description: "Modern take on the classic Kaftan, featuring bold patterns and comfortable fit."
+    category: "Dresses",
+    description: "Sophisticated dress combining Chantilly lace with crepe fabric."
   },
+  // Tops
   {
     id: 7,
     name: "Adire Peplum Top",
@@ -70,21 +57,23 @@ const allDesigns: DesignItem[] = [
     category: "Tops",
     description: "Stylish peplum top with Adire patterns, perfect for both casual and semi-formal occasions."
   },
+  // Sets
   {
-    id: 8,
-    name: "Ankara Maxi Skirt",
-    price: 21000,
-    image: "/lovable-uploads/d094b977-820e-48fb-8f37-9980cb9d9986.png",
-    category: "Skirts",
-    description: "Flowing maxi skirt with vibrant Ankara print, versatile for multiple styling options."
+    id: 3,
+    name: "Modern Dashiki Set",
+    price: 32000,
+    image: "/lovable-uploads/d001125d-920c-4a3b-a160-8cb621e01746.png",
+    category: "Sets",
+    description: "Contemporary two-piece outfit inspired by traditional Dashiki patterns."
   },
+  // Traditional
   {
-    id: 9,
-    name: "Kente Blazer",
-    price: 29500,
-    image: "/lovable-uploads/9c4fc432-246f-486b-ad1a-cec140d1b5c6.png",
-    category: "Jackets",
-    description: "Statement blazer featuring Kente-inspired patterns, perfect for professional settings."
+    id: 5,
+    name: "Traditional Aso-Oke",
+    price: 40000,
+    image: "/lovable-uploads/9914de1d-6f7e-4c69-b436-6c7691a91de9.png",
+    category: "Traditional",
+    description: "Hand-woven Aso-Oke ensemble, perfect for ceremonial and special events."
   },
   {
     id: 10,
@@ -94,6 +83,43 @@ const allDesigns: DesignItem[] = [
     category: "Traditional",
     description: "Traditional headwrap and accessories set with detailed embroidery."
   },
+  // Wraps
+  {
+    id: 2,
+    name: "Kente Fusion Wrap",
+    price: 27500,
+    image: "/lovable-uploads/a1e66d34-6a00-419f-83e8-73513d704f5d.png",
+    category: "Wraps",
+    description: "Versatile wrap skirt featuring traditional Kente patterns with modern styling."
+  },
+  // Kaftans
+  {
+    id: 6,
+    name: "Contemporary Kaftan",
+    price: 31000,
+    image: "/lovable-uploads/db2cf8e1-1161-49da-b0fd-d8882e055049.png",
+    category: "Kaftans",
+    description: "Modern take on the classic Kaftan, featuring bold patterns and comfortable fit."
+  },
+  // Skirts
+  {
+    id: 8,
+    name: "Ankara Maxi Skirt",
+    price: 21000,
+    image: "/lovable-uploads/d094b977-820e-48fb-8f37-9980cb9d9986.png",
+    category: "Skirts",
+    description: "Flowing maxi skirt with vibrant Ankara print, versatile for multiple styling options."
+  },
+  // Jackets
+  {
+    id: 9,
+    name: "Kente Blazer",
+    price: 29500,
+    image: "/lovable-uploads/9c4fc432-246f-486b-ad1a-cec140d1b5c6.png",
+    category: "Jackets",
+    description: "Statement blazer featuring Kente-inspired patterns, perfect for professional settings."
+  },
+  // Jumpsuits
   {
     id: 11,
     name: "Ankara Jumpsuit",
@@ -101,20 +127,13 @@ const allDesigns: DesignItem[] = [
     image: "/lovable-uploads/d001125d-920c-4a3b-a160-8cb621e01746.png",
     category: "Jumpsuits",
     description: "Modern jumpsuit featuring colorful Ankara fabric with contemporary cut."
-  },
-  {
-    id: 12,
-    name: "Batik Pattern Dress",
-    price: 26500,
-    image: "/lovable-uploads/bb1b0860-aeea-467f-954e-888b724a3c14.png",
-    category: "Dresses",
-    description: "Elegant dress featuring traditional batik patterns with modern silhouette."
   }
 ];
 
 const Shop = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [sortBy, setSortBy] = useState<'default' | 'priceLow' | 'priceHigh'>('default');
+  const [selectedItem, setSelectedItem] = useState<DesignItem | null>(null);
   
   const categories = ['All', ...Array.from(new Set(allDesigns.map(item => item.category)))];
   
@@ -127,6 +146,20 @@ const Shop = () => {
     if (sortBy === 'priceHigh') return b.price - a.price;
     return a.id - b.id;
   });
+
+  const handleViewDetails = (item: DesignItem) => {
+    setSelectedItem(item);
+  };
+
+  const handleOrderWhatsApp = (item: DesignItem) => {
+    const message = `Hello! I'm interested in ordering the ${item.name} for ₦${item.price.toLocaleString()}. Please provide more details about availability and ordering process.`;
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/2348168334381?text=${encodedMessage}`, '_blank');
+  };
+
+  const closeDetails = () => {
+    setSelectedItem(null);
+  };
 
   return (
     <div className="min-h-screen py-20 bg-muted/30">
@@ -195,12 +228,74 @@ const Shop = () => {
                 </div>
                 <p className="text-sm text-burgundy/70 mb-2">{item.category}</p>
                 <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{item.description}</p>
-                <button className="w-full btn-secondary">View Details</button>
+                <button 
+                  onClick={() => handleViewDetails(item)}
+                  className="w-full btn-secondary"
+                >
+                  View Details
+                </button>
               </div>
             </div>
           ))}
         </div>
       </div>
+      
+      {/* Product Details Modal */}
+      {selectedItem && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto animate-scale-in">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-2xl font-playfair font-bold text-burgundy">{selectedItem.name}</h3>
+                <button 
+                  onClick={closeDetails}
+                  className="text-gray-500 hover:text-gray-700 text-2xl"
+                >
+                  ×
+                </button>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="h-96 overflow-hidden rounded-lg">
+                  <img 
+                    src={selectedItem.image} 
+                    alt={selectedItem.name} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
+                <div className="space-y-4">
+                  <div>
+                    <span className="bg-gold text-black text-lg font-bold px-4 py-2 rounded-full flex items-center w-fit">
+                      <Tag size={16} className="mr-2" />
+                      ₦{selectedItem.price.toLocaleString()}
+                    </span>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold text-burgundy mb-2">Category:</h4>
+                    <p className="text-muted-foreground">{selectedItem.category}</p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold text-burgundy mb-2">Description:</h4>
+                    <p className="text-muted-foreground">{selectedItem.description}</p>
+                  </div>
+                  
+                  <div className="pt-4">
+                    <button 
+                      onClick={() => handleOrderWhatsApp(selectedItem)}
+                      className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-md transition-colors duration-300 flex items-center justify-center"
+                    >
+                      Order on WhatsApp
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       
       {/* WhatsApp Button */}
       <WhatsAppButton />
