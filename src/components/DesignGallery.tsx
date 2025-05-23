@@ -11,50 +11,73 @@ interface DesignItem {
   price: number;
   image: string;
   category: string;
+  sizes: string;
 }
 
 const designItems: DesignItem[] = [
   {
     id: 1,
-    name: "Royal Ankara Gown",
-    price: 35000,
-    image: "https://images.unsplash.com/photo-1580650487544-a7c620da0c8b?q=80&w=1000&auto=format&fit=crop",
-    category: "Gowns"
+    name: "Navy Chic",
+    price: 30000,
+    image: "/lovable-uploads/d266ae11-9249-4efb-9639-7df4fbcf640b.png",
+    category: "Dresses",
+    sizes: "Size 6-14"
   },
   {
     id: 2,
-    name: "Kente Fusion Wrap",
-    price: 27500,
-    image: "https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=1000&auto=format&fit=crop",
-    category: "Wraps"
+    name: "Raven Black Dress",
+    price: 20000,
+    image: "/lovable-uploads/bb1b0860-aeea-467f-954e-888b724a3c14.png",
+    category: "Dresses",
+    sizes: "Size 6-12"
   },
   {
     id: 3,
-    name: "Modern Dashiki Set",
-    price: 32000,
-    image: "https://images.unsplash.com/photo-1595070927333-f4a98053526f?q=80&w=1000&auto=format&fit=crop",
-    category: "Sets"
+    name: "Vintage Bloom",
+    price: 25000,
+    image: "/lovable-uploads/d094b977-820e-48fb-8f37-9980cb9d9986.png",
+    category: "Dresses",
+    sizes: "Size 6-12"
   },
   {
     id: 4,
-    name: "Elegant Adire Dress",
-    price: 29000,
-    image: "https://images.unsplash.com/photo-1594416286851-05439c3b8874?q=80&w=1000&auto=format&fit=crop",
-    category: "Dresses"
+    name: "Vintage Bloom Set",
+    price: 25000,
+    image: "/lovable-uploads/d001125d-920c-4a3b-a160-8cb621e01746.png",
+    category: "Sets",
+    sizes: "Size 6-12"
   },
   {
     id: 5,
-    name: "Traditional Aso-Oke",
-    price: 40000,
-    image: "https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?q=80&w=1000&auto=format&fit=crop",
-    category: "Traditional"
+    name: "Rich Aunty Midi Bubu",
+    price: 24000,
+    image: "/lovable-uploads/9914de1d-6f7e-4c69-b436-6c7691a91de9.png",
+    category: "Traditional",
+    sizes: "Size 6-14"
   },
   {
     id: 6,
-    name: "Contemporary Kaftan",
-    price: 31000,
-    image: "https://images.unsplash.com/photo-1605289355680-75fb41239154?q=80&w=1000&auto=format&fit=crop",
-    category: "Kaftans"
+    name: "Adire Silk",
+    price: 28000,
+    image: "/lovable-uploads/a1e66d34-6a00-419f-83e8-73513d704f5d.png",
+    category: "Traditional",
+    sizes: "Size 6-12 (₦28,000), Size 12&14 (₦30,000)"
+  },
+  {
+    id: 7,
+    name: "Chantilly X Crepe",
+    price: 30000,
+    image: "/lovable-uploads/db2cf8e1-1161-49da-b0fd-d8882e055049.png",
+    category: "Dresses",
+    sizes: "Size 6-12"
+  },
+  {
+    id: 8,
+    name: "Zayrah Dress",
+    price: 22000,
+    image: "/lovable-uploads/9c4fc432-246f-486b-ad1a-cec140d1b5c6.png",
+    category: "Dresses",
+    sizes: "Size 6-12"
   },
 ];
 
@@ -87,7 +110,7 @@ const DesignGallery = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {designItems.map((item, index) => (
             <Card 
               key={item.id} 
@@ -100,10 +123,6 @@ const DesignGallery = () => {
                     src={item.image} 
                     alt={item.name} 
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = "https://images.unsplash.com/photo-1580650487544-a7c620da0c8b?q=80&w=1000&auto=format&fit=crop";
-                    }}
                   />
                 </AspectRatio>
               </div>
@@ -115,7 +134,8 @@ const DesignGallery = () => {
                     ₦{item.price.toLocaleString()}
                   </span>
                 </div>
-                <p className="text-sm text-muted-foreground mb-4">{item.category}</p>
+                <p className="text-sm text-muted-foreground mb-2">{item.category}</p>
+                <p className="text-xs text-burgundy/70 mb-4">{item.sizes}</p>
               </CardContent>
               <CardFooter className="px-6 pb-6 pt-0">
                 <button className="w-full btn-secondary">View Details</button>

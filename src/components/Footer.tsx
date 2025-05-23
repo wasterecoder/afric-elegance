@@ -18,10 +18,10 @@ const Footer = () => {
               Celebrating African heritage through elegant fashion designs and quality craftsmanship.
             </p>
             <div className="flex space-x-4 mt-6">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-gold transition-colors">
+              <a href="https://www.instagram.com/afric_elegance3?igsh=eDJ4MnU4ejFhMmNp&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-gold transition-colors">
                 <Instagram size={22} />
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-gold transition-colors">
+              <a href="https://www.facebook.com/share/1VFafzU42L/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-gold transition-colors">
                 <Facebook size={22} />
               </a>
             </div>
@@ -53,7 +53,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <Mail size={18} className="mr-2 flex-shrink-0" />
-                <span>info@africchicelegance.com</span>
+                <span>africelegance787@gmail.com</span>
               </li>
             </ul>
           </div>

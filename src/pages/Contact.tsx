@@ -105,7 +105,7 @@ const Contact = () => {
                   <Mail size={24} className="text-gold mr-4 mt-1" />
                   <div>
                     <h3 className="font-bold mb-1">Email</h3>
-                    <p>info@africchicelegance.com<br />orders@africchicelegance.com</p>
+                    <p>africelegance787@gmail.com</p>
                   </div>
                 </div>
                 
@@ -125,7 +125,7 @@ const Contact = () => {
               <p className="mb-6">Stay updated with our latest designs, events, and fashion tips by following us on social media.</p>
               <div className="flex space-x-4">
                 <a 
-                  href="https://instagram.com" 
+                  href="https://www.instagram.com/afric_elegance3?igsh=eDJ4MnU4ejFhMmNp&utm_source=qr" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="bg-white text-burgundy p-3 rounded-full hover:bg-gold transition-colors"
@@ -133,7 +133,7 @@ const Contact = () => {
                   <Instagram size={24} />
                 </a>
                 <a 
-                  href="https://facebook.com" 
+                  href="https://www.facebook.com/share/1VFafzU42L/?mibextid=wwXIfr" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="bg-white text-burgundy p-3 rounded-full hover:bg-gold transition-colors"

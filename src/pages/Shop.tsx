@@ -12,101 +12,101 @@ interface DesignItem {
   description?: string;
 }
 
-// More design items for the shop page
+// Updated design items for the shop page with appropriate images for each category
 const allDesigns: DesignItem[] = [
   {
     id: 1,
     name: "Royal Ankara Gown",
-    price: 350,
-    image: "/images/design1.jpg",
+    price: 35000,
+    image: "/lovable-uploads/d266ae11-9249-4efb-9639-7df4fbcf640b.png",
     category: "Gowns",
     description: "Elegant floor-length gown made with premium Ankara fabric, perfect for special occasions."
   },
   {
     id: 2,
     name: "Kente Fusion Wrap",
-    price: 275,
-    image: "/images/design2.jpg",
+    price: 27500,
+    image: "/lovable-uploads/a1e66d34-6a00-419f-83e8-73513d704f5d.png",
     category: "Wraps",
     description: "Versatile wrap skirt featuring traditional Kente patterns with modern styling."
   },
   {
     id: 3,
     name: "Modern Dashiki Set",
-    price: 320,
-    image: "/images/design3.jpg",
+    price: 32000,
+    image: "/lovable-uploads/d001125d-920c-4a3b-a160-8cb621e01746.png",
     category: "Sets",
     description: "Contemporary two-piece outfit inspired by traditional Dashiki patterns."
   },
   {
     id: 4,
     name: "Elegant Adire Dress",
-    price: 290,
-    image: "/images/design4.jpg",
+    price: 29000,
+    image: "/lovable-uploads/bb1b0860-aeea-467f-954e-888b724a3c14.png",
     category: "Dresses",
     description: "Mid-length dress featuring hand-dyed Adire fabric with intricate patterns."
   },
   {
     id: 5,
     name: "Traditional Aso-Oke",
-    price: 400,
-    image: "/images/design5.jpg",
+    price: 40000,
+    image: "/lovable-uploads/9914de1d-6f7e-4c69-b436-6c7691a91de9.png",
     category: "Traditional",
     description: "Hand-woven Aso-Oke ensemble, perfect for ceremonial and special events."
   },
   {
     id: 6,
     name: "Contemporary Kaftan",
-    price: 310,
-    image: "/images/design6.jpg",
+    price: 31000,
+    image: "/lovable-uploads/db2cf8e1-1161-49da-b0fd-d8882e055049.png",
     category: "Kaftans",
     description: "Modern take on the classic Kaftan, featuring bold patterns and comfortable fit."
   },
   {
     id: 7,
     name: "Adire Peplum Top",
-    price: 180,
-    image: "/images/design7.jpg",
+    price: 18000,
+    image: "/lovable-uploads/9c4fc432-246f-486b-ad1a-cec140d1b5c6.png",
     category: "Tops",
     description: "Stylish peplum top with Adire patterns, perfect for both casual and semi-formal occasions."
   },
   {
     id: 8,
     name: "Ankara Maxi Skirt",
-    price: 210,
-    image: "/images/design8.jpg",
+    price: 21000,
+    image: "/lovable-uploads/d094b977-820e-48fb-8f37-9980cb9d9986.png",
     category: "Skirts",
     description: "Flowing maxi skirt with vibrant Ankara print, versatile for multiple styling options."
   },
   {
     id: 9,
     name: "Kente Blazer",
-    price: 295,
-    image: "/images/design9.jpg",
+    price: 29500,
+    image: "/lovable-uploads/9c4fc432-246f-486b-ad1a-cec140d1b5c6.png",
     category: "Jackets",
     description: "Statement blazer featuring Kente-inspired patterns, perfect for professional settings."
   },
   {
     id: 10,
     name: "Embroidered Gele Set",
-    price: 330,
-    image: "/images/design10.jpg",
+    price: 33000,
+    image: "/lovable-uploads/a1e66d34-6a00-419f-83e8-73513d704f5d.png",
     category: "Traditional",
     description: "Traditional headwrap and accessories set with detailed embroidery."
   },
   {
     id: 11,
     name: "Ankara Jumpsuit",
-    price: 280,
-    image: "/images/design11.jpg",
+    price: 28000,
+    image: "/lovable-uploads/d001125d-920c-4a3b-a160-8cb621e01746.png",
     category: "Jumpsuits",
     description: "Modern jumpsuit featuring colorful Ankara fabric with contemporary cut."
   },
   {
     id: 12,
     name: "Batik Pattern Dress",
-    price: 265,
-    image: "/images/design12.jpg",
+    price: 26500,
+    image: "/lovable-uploads/bb1b0860-aeea-467f-954e-888b724a3c14.png",
     category: "Dresses",
     description: "Elegant dress featuring traditional batik patterns with modern silhouette."
   }
@@ -190,7 +190,7 @@ const Shop = () => {
                   <h3 className="font-playfair font-bold text-xl text-burgundy">{item.name}</h3>
                   <span className="bg-gold text-black text-sm font-bold px-3 py-1 rounded-full flex items-center">
                     <Tag size={14} className="mr-1" />
-                    ${item.price}
+                    ₦{item.price.toLocaleString()}
                   </span>
                 </div>
                 <p className="text-sm text-burgundy/70 mb-2">{item.category}</p>

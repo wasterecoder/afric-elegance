@@ -8,7 +8,7 @@ const AboutSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
             <img 
-              src="/images/founder.jpg" 
+              src="/lovable-uploads/27311aca-3231-40c0-88e1-45a09b044d7e.png" 
               alt="Oluwaseun Adeleke - Founder of Afric Chic Elegance" 
               className="rounded-lg shadow-xl w-full h-auto max-w-md mx-auto"
             />

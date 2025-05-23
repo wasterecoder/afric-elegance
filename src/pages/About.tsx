@@ -85,7 +85,7 @@ const About = () => {
             </div>
             <div>
               <img 
-                src="/images/about-studio.jpg" 
+                src="/lovable-uploads/27311aca-3231-40c0-88e1-45a09b044d7e.png" 
                 alt="Our Design Studio" 
                 className="rounded-lg shadow-xl w-full h-auto"
               />
@@ -157,7 +157,7 @@ const About = () => {
               <div className="grid grid-cols-1 md:grid-cols-3">
                 <div className="md:col-span-1">
                   <Avatar className="w-full h-full rounded-none">
-                    <AvatarImage src="/images/founder.jpg" alt="Oluwaseun Adeleke" className="object-cover" />
+                    <AvatarImage src="/lovable-uploads/27311aca-3231-40c0-88e1-45a09b044d7e.png" alt="Oluwaseun Adeleke" className="object-cover" />
                     <AvatarFallback className="text-3xl">OA</AvatarFallback>
                   </Avatar>
                 </div>

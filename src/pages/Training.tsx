@@ -34,6 +34,31 @@ const Training = () => {
     }
   ];
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      firstName: formData.get('firstName'),
+      lastName: formData.get('lastName'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      experience: formData.get('experience'),
+      message: formData.get('message')
+    };
+
+    const subject = 'Training Program Registration';
+    const body = `New training registration:
+    
+Name: ${data.firstName} ${data.lastName}
+Email: ${data.email}
+Phone: ${data.phone}
+Experience Level: ${data.experience}
+Message: ${data.message}`;
+
+    const mailtoLink = `mailto:africelegance787@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -114,12 +139,13 @@ const Training = () => {
             <h2 className="section-title text-center mx-auto after:left-1/2 after:-translate-x-1/2">Register Your Interest</h2>
             <p className="text-center mb-8">Fill out this form to receive detailed information about our upcoming training sessions</p>
             
-            <form className="bg-white p-8 rounded-lg shadow-lg">
+            <form className="bg-white p-8 rounded-lg shadow-lg" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label className="block text-sm font-medium mb-2">First Name</label>
                   <input 
                     type="text" 
+                    name="firstName"
                     className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gold"
                     required
                   />
@@ -128,6 +154,7 @@ const Training = () => {
                   <label className="block text-sm font-medium mb-2">Last Name</label>
                   <input 
                     type="text" 
+                    name="lastName"
                     className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gold"
                     required
                   />
@@ -138,6 +165,7 @@ const Training = () => {
                 <label className="block text-sm font-medium mb-2">Email Address</label>
                 <input 
                   type="email" 
+                  name="email"
                   className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gold"
                   required
                 />
@@ -147,6 +175,7 @@ const Training = () => {
                 <label className="block text-sm font-medium mb-2">Phone Number</label>
                 <input 
                   type="tel" 
+                  name="phone"
                   className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gold"
                   required
                 />
@@ -154,7 +183,7 @@ const Training = () => {
               
               <div className="mb-6">
                 <label className="block text-sm font-medium mb-2">Experience Level</label>
-                <select className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gold">
+                <select name="experience" className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gold">
                   <option>Beginner</option>
                   <option>Intermediate</option>
                   <option>Advanced</option>
@@ -165,6 +194,7 @@ const Training = () => {
                 <label className="block text-sm font-medium mb-2">Message (Optional)</label>
                 <textarea 
                   rows={4}
+                  name="message"
                   className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gold"
                 ></textarea>
               </div>
