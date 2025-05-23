@@ -1,7 +1,9 @@
 
 import React, { useState } from 'react';
-import { Tag, Filter } from 'lucide-react';
+import { Tag, Filter, MessageSquare } from 'lucide-react';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
 
 interface DesignItem {
   id: number;
@@ -10,131 +12,114 @@ interface DesignItem {
   image: string;
   category: string;
   description?: string;
+  sizes?: string;
 }
 
-// Updated design items with properly categorized images
-const allDesigns: DesignItem[] = [
-  // Gowns
+// Our Exquisite Designs - Original gallery items
+const exquisiteDesigns: DesignItem[] = [
   {
     id: 1,
-    name: "Royal Ankara Gown",
-    price: 35000,
+    name: "Navy Chic",
+    price: 30000,
     image: "/lovable-uploads/d266ae11-9249-4efb-9639-7df4fbcf640b.png",
-    category: "Gowns",
-    description: "Elegant floor-length gown made with premium Ankara fabric, perfect for special occasions."
+    category: "Dresses",
+    sizes: "Size 6-14"
   },
-  // Dresses
   {
-    id: 4,
-    name: "Elegant Adire Dress",
-    price: 29000,
+    id: 2,
+    name: "Raven Black Dress",
+    price: 20000,
     image: "/lovable-uploads/bb1b0860-aeea-467f-954e-888b724a3c14.png",
     category: "Dresses",
-    description: "Mid-length dress featuring hand-dyed Adire fabric with intricate patterns."
+    sizes: "Size 6-12"
   },
   {
-    id: 12,
-    name: "Batik Pattern Dress",
-    price: 26500,
-    image: "/lovable-uploads/d094b977-820e-48fb-8f37-9980cb9d9986.png",
-    category: "Dresses",
-    description: "Elegant dress featuring traditional batik patterns with modern silhouette."
+    id: 3,
+    name: "BW Classic Jumpsuit",
+    price: 25000,
+    image: "/lovable-uploads/d001125d-920c-4a3b-a160-8cb621e01746.png",
+    category: "Jumpsuits",
+    sizes: "Size 6-12"
   },
   {
-    id: 13,
-    name: "Chantilly X Crepe Dress",
+    id: 4,
+    name: "Rich Aunty Midi Bubu",
+    price: 24000,
+    image: "/lovable-uploads/9914de1d-6f7e-4c69-b436-6c7691a91de9.png",
+    category: "Traditional",
+    sizes: "Size 6-14"
+  },
+  {
+    id: 5,
+    name: "Adire Silk",
+    price: 28000,
+    image: "/lovable-uploads/a1e66d34-6a00-419f-83e8-73513d704f5d.png",
+    category: "Traditional",
+    sizes: "Size 6-12 (₦28,000), Size 12&14 (₦30,000)"
+  },
+  {
+    id: 6,
+    name: "Chantilly X Crepe",
     price: 30000,
     image: "/lovable-uploads/db2cf8e1-1161-49da-b0fd-d8882e055049.png",
     category: "Dresses",
-    description: "Sophisticated dress combining Chantilly lace with crepe fabric."
+    sizes: "Size 6-12"
   },
-  // Tops
   {
     id: 7,
-    name: "Adire Peplum Top",
-    price: 18000,
+    name: "Zayrah Dress",
+    price: 22000,
     image: "/lovable-uploads/9c4fc432-246f-486b-ad1a-cec140d1b5c6.png",
-    category: "Tops",
-    description: "Stylish peplum top with Adire patterns, perfect for both casual and semi-formal occasions."
-  },
-  // Sets
+    category: "Dresses",
+    sizes: "Size 6-12"
+  }
+];
+
+// New Arrivals
+const newArrivals: DesignItem[] = [
   {
-    id: 3,
-    name: "Modern Dashiki Set",
-    price: 32000,
-    image: "/lovable-uploads/d001125d-920c-4a3b-a160-8cb621e01746.png",
-    category: "Sets",
-    description: "Contemporary two-piece outfit inspired by traditional Dashiki patterns."
-  },
-  // Traditional
-  {
-    id: 5,
-    name: "Traditional Aso-Oke",
-    price: 40000,
-    image: "/lovable-uploads/9914de1d-6f7e-4c69-b436-6c7691a91de9.png",
+    id: 8,
+    name: "Aso Oke X Amaka Bubu",
+    price: 20000,
+    image: "/lovable-uploads/6b01eb59-750c-44e0-b928-7cb80e8d14b5.png",
     category: "Traditional",
-    description: "Hand-woven Aso-Oke ensemble, perfect for ceremonial and special events."
+    sizes: "Size 6-14"
+  },
+  {
+    id: 9,
+    name: "Jumbo Pant",
+    price: 12000,
+    image: "/lovable-uploads/4e05a984-044e-4d04-98a4-ba7be7112e5b.png",
+    category: "Bottoms",
+    sizes: "Size 6-14"
   },
   {
     id: 10,
-    name: "Embroidered Gele Set",
-    price: 33000,
-    image: "/lovable-uploads/a1e66d34-6a00-419f-83e8-73513d704f5d.png",
-    category: "Traditional",
-    description: "Traditional headwrap and accessories set with detailed embroidery."
+    name: "Lace Noire",
+    price: 24000,
+    image: "/lovable-uploads/d5b7ec64-d658-49e4-b6ea-ec5231d3c636.png",
+    category: "Sets",
+    sizes: "Size 6-12"
   },
-  // Wraps
-  {
-    id: 2,
-    name: "Kente Fusion Wrap",
-    price: 27500,
-    image: "/lovable-uploads/a1e66d34-6a00-419f-83e8-73513d704f5d.png",
-    category: "Wraps",
-    description: "Versatile wrap skirt featuring traditional Kente patterns with modern styling."
-  },
-  // Kaftans
-  {
-    id: 6,
-    name: "Contemporary Kaftan",
-    price: 31000,
-    image: "/lovable-uploads/db2cf8e1-1161-49da-b0fd-d8882e055049.png",
-    category: "Kaftans",
-    description: "Modern take on the classic Kaftan, featuring bold patterns and comfortable fit."
-  },
-  // Skirts
-  {
-    id: 8,
-    name: "Ankara Maxi Skirt",
-    price: 21000,
-    image: "/lovable-uploads/d094b977-820e-48fb-8f37-9980cb9d9986.png",
-    category: "Skirts",
-    description: "Flowing maxi skirt with vibrant Ankara print, versatile for multiple styling options."
-  },
-  // Jackets
-  {
-    id: 9,
-    name: "Kente Blazer",
-    price: 29500,
-    image: "/lovable-uploads/9c4fc432-246f-486b-ad1a-cec140d1b5c6.png",
-    category: "Jackets",
-    description: "Statement blazer featuring Kente-inspired patterns, perfect for professional settings."
-  },
-  // Jumpsuits
   {
     id: 11,
-    name: "Ankara Jumpsuit",
-    price: 28000,
-    image: "/lovable-uploads/d001125d-920c-4a3b-a160-8cb621e01746.png",
-    category: "Jumpsuits",
-    description: "Modern jumpsuit featuring colorful Ankara fabric with contemporary cut."
+    name: "Ankara Crop Top X Jumbo Pant",
+    price: 20000,
+    image: "/lovable-uploads/1343cd95-c434-4bb4-991d-6778eea18fe5.png",
+    category: "Sets",
+    sizes: "Size 6-14"
   }
 ];
+
+// All designs combined
+const allDesigns = [...exquisiteDesigns, ...newArrivals];
 
 const Shop = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [sortBy, setSortBy] = useState<'default' | 'priceLow' | 'priceHigh'>('default');
   const [selectedItem, setSelectedItem] = useState<DesignItem | null>(null);
   
+  // Get unique categories from actual product names
   const categories = ['All', ...Array.from(new Set(allDesigns.map(item => item.category)))];
   
   const filteredDesigns = selectedCategory && selectedCategory !== 'All'
@@ -152,7 +137,13 @@ const Shop = () => {
   };
 
   const handleOrderWhatsApp = (item: DesignItem) => {
-    const message = `Hello! I'm interested in ordering the ${item.name} for ₦${item.price.toLocaleString()}. Please provide more details about availability and ordering process.`;
+    const message = `Hello! I'm interested in ordering the ${item.name} ${item.sizes ? `(${item.sizes})` : ''} for ₦${item.price.toLocaleString()}. Please provide more details about availability and ordering process.`;
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/2348168334381?text=${encodedMessage}`, '_blank');
+  };
+
+  const handleCustomInquiry = () => {
+    const message = "Hello! I didn't find my perfect style and would like to discuss a custom design. Can you help me bring my vision to life?";
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/2348168334381?text=${encodedMessage}`, '_blank');
   };
@@ -162,83 +153,108 @@ const Shop = () => {
   };
 
   return (
-    <div className="min-h-screen py-20 bg-muted/30">
-      <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <h1 className="text-5xl font-playfair font-bold text-burgundy mb-4">Shop Our Designs</h1>
-          <p className="text-lg max-w-3xl mx-auto text-muted-foreground">
-            Explore our exquisite collection of African-inspired fashion pieces, handcrafted with care and attention to detail
-          </p>
-        </div>
-        
-        {/* Filters and Sorting */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
-          <div className="flex flex-wrap gap-2">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category === 'All' ? null : category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  (category === 'All' && !selectedCategory) || category === selectedCategory
-                    ? 'bg-burgundy text-white'
-                    : 'bg-white text-burgundy hover:bg-gold hover:text-black'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
+    <div className="min-h-screen">
+      {/* Our Exquisite Designs Section */}
+      <section className="py-20 bg-muted/30" id="designs">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="section-title mx-auto after:left-1/2 after:-translate-x-1/2">Our Exquisite Designs</h2>
+            <p className="text-lg max-w-3xl mx-auto text-muted-foreground">
+              Discover our collection of handcrafted African attires that celebrate culture and elegance
+            </p>
           </div>
-          
-          <div className="flex items-center">
-            <Filter size={16} className="mr-2 text-burgundy" />
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as 'default' | 'priceLow' | 'priceHigh')}
-              className="bg-white border border-muted rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-gold"
-            >
-              <option value="default">Sort By</option>
-              <option value="priceLow">Price: Low to High</option>
-              <option value="priceHigh">Price: High to Low</option>
-            </select>
-          </div>
-        </div>
-        
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {sortedDesigns.map((item, index) => (
-            <div 
-              key={item.id} 
-              className="gallery-card bg-white rounded-lg overflow-hidden shadow-lg opacity-0 animate-slide-up"
-              style={{ animationDelay: `${0.1 * (index % 8)}s` }}
-            >
-              <div className="h-80 overflow-hidden">
-                <img 
-                  src={item.image} 
-                  alt={item.name} 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="font-playfair font-bold text-xl text-burgundy">{item.name}</h3>
-                  <span className="bg-gold text-black text-sm font-bold px-3 py-1 rounded-full flex items-center">
-                    <Tag size={14} className="mr-1" />
-                    ₦{item.price.toLocaleString()}
-                  </span>
-                </div>
-                <p className="text-sm text-burgundy/70 mb-2">{item.category}</p>
-                <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{item.description}</p>
-                <button 
-                  onClick={() => handleViewDetails(item)}
-                  className="w-full btn-secondary"
+
+          {/* Category Filters and Sorting */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
+            <div className="flex flex-wrap gap-2">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category === 'All' ? null : category)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                    (category === 'All' && !selectedCategory) || category === selectedCategory
+                      ? 'bg-burgundy text-white'
+                      : 'bg-white text-burgundy hover:bg-gold hover:text-black'
+                  }`}
                 >
-                  View Details
+                  {category}
                 </button>
-              </div>
+              ))}
             </div>
-          ))}
+            
+            <div className="flex items-center">
+              <Filter size={16} className="mr-2 text-burgundy" />
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value as 'default' | 'priceLow' | 'priceHigh')}
+                className="bg-white border border-muted rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-gold"
+              >
+                <option value="default">Sort By</option>
+                <option value="priceLow">Price: Low to High</option>
+                <option value="priceHigh">Price: High to Low</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {sortedDesigns.map((item, index) => (
+              <Card 
+                key={item.id} 
+                className="gallery-card overflow-hidden shadow-lg opacity-0 animate-slide-up"
+                style={{ animationDelay: `${0.2 * index}s` }}
+              >
+                <div className="h-80 overflow-hidden">
+                  <AspectRatio ratio={4/5} className="bg-muted">
+                    <img 
+                      src={item.image} 
+                      alt={item.name} 
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    />
+                  </AspectRatio>
+                </div>
+                <CardContent className="p-6">
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="font-playfair font-bold text-xl text-burgundy">{item.name}</h3>
+                    <span className="bg-gold text-black text-sm font-bold px-3 py-1 rounded-full flex items-center">
+                      <Tag size={14} className="mr-1" />
+                      ₦{item.price.toLocaleString()}
+                    </span>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-2">{item.category}</p>
+                  {item.sizes && <p className="text-xs text-burgundy/70 mb-4">{item.sizes}</p>}
+                  {item.description && <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{item.description}</p>}
+                </CardContent>
+                <CardFooter className="px-6 pb-6 pt-0">
+                  <button 
+                    onClick={() => handleViewDetails(item)}
+                    className="w-full btn-secondary"
+                  >
+                    View Details
+                  </button>
+                </CardFooter>
+              </Card>
+            ))}
+
+            {/* Custom Inquiry Card */}
+            <Card className="gallery-card overflow-hidden shadow-lg opacity-0 animate-slide-up bg-gradient-to-br from-burgundy to-burgundy/80 text-white">
+              <CardContent className="p-8 text-center h-full flex flex-col justify-center">
+                <MessageSquare size={48} className="mx-auto mb-4 text-gold" />
+                <h3 className="font-playfair font-bold text-xl mb-4">Custom Design</h3>
+                <p className="mb-6 text-sm opacity-90">
+                  Didn't find your perfect style? Let's bring your vision to life. Chat with us now on WhatsApp!
+                </p>
+                <button 
+                  onClick={handleCustomInquiry}
+                  className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-md transition-colors duration-300 flex items-center justify-center mx-auto"
+                >
+                  <MessageSquare size={18} className="mr-2" />
+                  Chat on WhatsApp
+                </button>
+              </CardContent>
+            </Card>
+          </div>
         </div>
-      </div>
+      </section>
       
       {/* Product Details Modal */}
       {selectedItem && (
@@ -277,9 +293,18 @@ const Shop = () => {
                     <p className="text-muted-foreground">{selectedItem.category}</p>
                   </div>
                   
+                  {selectedItem.sizes && (
+                    <div>
+                      <h4 className="font-semibold text-burgundy mb-2">Available Sizes:</h4>
+                      <p className="text-muted-foreground">{selectedItem.sizes}</p>
+                    </div>
+                  )}
+                  
                   <div>
                     <h4 className="font-semibold text-burgundy mb-2">Description:</h4>
-                    <p className="text-muted-foreground">{selectedItem.description}</p>
+                    <p className="text-muted-foreground">
+                      {selectedItem.description || "Handcrafted with premium African fabrics, this elegant piece combines traditional aesthetics with modern design. Perfect for special occasions and celebrations."}
+                    </p>
                   </div>
                   
                   <div className="pt-4">
