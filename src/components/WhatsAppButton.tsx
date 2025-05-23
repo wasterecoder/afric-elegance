@@ -4,7 +4,7 @@ import { MessageSquare } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const WhatsAppButton = () => {
-  const whatsappNumber = "+1234567890"; // Replace with your actual WhatsApp number
+  const whatsappNumber = "+2348168334381";
   const message = "Hello, I'm interested in your African fashion designs!";
   
   const handleWhatsAppClick = () => {
