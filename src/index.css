@@ -120,10 +120,75 @@
 
 .hero-section {
   position: relative;
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('/images/hero-bg.jpg');
-  background-size: cover;
-  background-position: center;
+  background: 
+    linear-gradient(135deg, rgba(128, 0, 32, 0.85) 0%, rgba(212, 175, 55, 0.75) 50%, rgba(128, 0, 32, 0.85) 100%),
+    linear-gradient(45deg, #D4AF37 0%, #800020 25%, #50C878 50%, #D4AF37 75%, #800020 100%);
+  background-size: 400% 400%, 200% 200%;
+  background-position: 0% 50%, 0% 50%;
   min-height: 90vh;
+  animation: africPattern 20s ease-in-out infinite;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(80, 200, 120, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(128, 0, 32, 0.4) 0%, transparent 50%);
+  background-size: 100px 100px, 150px 150px, 80px 80px;
+  background-position: 0 0, 50px 50px, 25px 25px;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(212, 175, 55, 0.1) 10px,
+      rgba(212, 175, 55, 0.1) 20px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 10px,
+      rgba(128, 0, 32, 0.05) 10px,
+      rgba(128, 0, 32, 0.05) 20px
+    );
+  z-index: 1;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 10;
+}
+
+@keyframes africPattern {
+  0%, 100% {
+    background-position: 0% 50%, 0% 50%;
+  }
+  25% {
+    background-position: 100% 50%, 50% 100%;
+  }
+  50% {
+    background-position: 100% 100%, 100% 50%;
+  }
+  75% {
+    background-position: 50% 100%, 50% 0%;
+  }
 }
 
 .gallery-card {

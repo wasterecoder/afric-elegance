@@ -1,3 +1,4 @@
+
 import React from 'react';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { MapPin } from 'lucide-react';
@@ -26,27 +27,27 @@ const About = () => {
   const milestones = [
     {
       year: "2015",
-      event: "Establishment of Afric Chic Elegance in a small studio"
+      event: "Started Afric Chic Elegance from a small home studio with a passion for African fashion"
     },
     {
       year: "2017",
-      event: "First fashion showcase at Lagos Fashion Week"
+      event: "Participated in our first fashion showcase, connecting with like-minded fashion enthusiasts"
     },
     {
       year: "2018",
-      event: "Launch of training program for aspiring fashion designers"
+      event: "Began mentoring aspiring designers, sharing knowledge about African textile traditions"
     },
     {
       year: "2019",
-      event: "Expansion to international markets"
+      event: "Expanded our reach to serve customers beyond Lagos, building lasting relationships"
     },
     {
       year: "2021",
-      event: "Collaboration with renowned African textile manufacturers"
+      event: "Deepened partnerships with local fabric artisans, supporting community craftsmanship"
     },
     {
       year: "2023",
-      event: "Opening of flagship store and design studio in Ajah, Lagos"
+      event: "Opened our dedicated studio space in Ajah, creating a welcoming environment for clients"
     }
   ];
 
@@ -112,6 +113,9 @@ const About = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto">
           <h2 className="section-title text-center mx-auto after:left-1/2 after:-translate-x-1/2">Our Journey</h2>
+          <p className="text-center mb-12 max-w-3xl mx-auto text-muted-foreground">
+            From humble beginnings to a growing community of fashion enthusiasts, our journey reflects our dedication to celebrating African heritage through thoughtful design and genuine craftsmanship.
+          </p>
           <div className="max-w-4xl mx-auto mt-12 relative">
             {/* Center Line */}
             <div className="absolute left-1/2 -ml-0.5 w-1 h-full bg-gold"></div>
