@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Scissors, Ruler, Palette, PenTool } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const TrainingSection = () => {
   const benefits = [
@@ -34,12 +35,12 @@ const TrainingSection = () => {
           <div>
             <h2 className="section-title">Fashion Design Training Program</h2>
             <p className="text-lg mb-6">
-              Become a skilled African fashion designer through our comprehensive training program. Learn from expert tailors and designers with years of experience in the industry.
+              Become a skilled African fashion designer through our comprehensive training program. Learn from expert tailors and designers with 9 years of experience in the industry.
             </p>
             <p className="mb-8">
               Our hands-on approach ensures you gain practical skills along with theoretical knowledge. Whether you're a beginner or looking to enhance your existing skills, our program is tailored to help you succeed in the African fashion industry.
             </p>
-            <button className="btn-primary">Sign Up for Training</button>
+            <Link to="/training#register" className="btn-primary">Sign Up for Training</Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

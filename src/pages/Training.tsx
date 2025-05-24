@@ -56,6 +56,13 @@ Message: ${data.message}`;
     window.location.href = mailtoLink;
   };
 
+  const scrollToRegistration = () => {
+    const registrationSection = document.getElementById('register');
+    if (registrationSection) {
+      registrationSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -65,7 +72,7 @@ Message: ${data.message}`;
           <p className="text-xl max-w-3xl mx-auto mb-10">
             Master the art of African fashion design through our comprehensive, hands-on training program
           </p>
-          <button className="btn-primary">Enroll Now</button>
+          <button onClick={scrollToRegistration} className="btn-primary">Enroll Now</button>
         </div>
       </section>
 
@@ -130,7 +137,7 @@ Message: ${data.message}`;
       </section>
 
       {/* Registration Form */}
-      <section className="py-20 bg-muted/20">
+      <section className="py-20 bg-muted/20" id="register">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto">
             <h2 className="section-title text-center mx-auto after:left-1/2 after:-translate-x-1/2">Register Your Interest</h2>

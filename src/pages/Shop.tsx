@@ -79,7 +79,7 @@ const exquisiteDesigns: DesignItem[] = [
 const newArrivals: DesignItem[] = [
   {
     id: 8,
-    name: "Aso Oke X Amaka Bubu",
+    name: "Aso Oke X Ankara Bubu",
     price: 20000,
     image: "/lovable-uploads/6b01eb59-750c-44e0-b928-7cb80e8d14b5.png",
     category: "Traditional",
@@ -114,6 +114,10 @@ const newArrivals: DesignItem[] = [
 // All designs combined
 const allDesigns = [...exquisiteDesigns, ...newArrivals];
 
+const calculateDiscountedPrice = (price: number) => {
+  return Math.round(price * 0.7); // 30% discount
+};
+
 const Shop = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [sortBy, setSortBy] = useState<'default' | 'priceLow' | 'priceHigh'>('default');
@@ -137,7 +141,8 @@ const Shop = () => {
   };
 
   const handleOrderWhatsApp = (item: DesignItem) => {
-    const message = `Hello! I'm interested in ordering the ${item.name} ${item.sizes ? `(${item.sizes})` : ''} for ₦${item.price.toLocaleString()}. Please provide more details about availability and ordering process.`;
+    const discountedPrice = calculateDiscountedPrice(item.price);
+    const message = `Hello! I'm interested in ordering the ${item.name} ${item.sizes ? `(${item.sizes})` : ''} for ₦${discountedPrice.toLocaleString()} (30% off the original price of ₦${item.price.toLocaleString()}). Please provide more details about availability and ordering process.`;
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/2348168334381?text=${encodedMessage}`, '_blank');
   };
@@ -150,6 +155,13 @@ const Shop = () => {
 
   const closeDetails = () => {
     setSelectedItem(null);
+  };
+
+  const getProductDescription = (itemName: string) => {
+    if (itemName === "Navy Chic") {
+      return "This exquisite outfit exudes sophistication and elegance, perfect for formal occasions. The intricate details and luxurious fabrics come together to create a truly classy ensemble.";
+    }
+    return "Handcrafted with premium African fabrics, this elegant piece combines traditional aesthetics with modern design. Perfect for special occasions and celebrations.";
   };
 
   return (
@@ -197,43 +209,49 @@ const Shop = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {sortedDesigns.map((item, index) => (
-              <Card 
-                key={item.id} 
-                className="gallery-card overflow-hidden shadow-lg opacity-0 animate-slide-up"
-                style={{ animationDelay: `${0.2 * index}s` }}
-              >
-                <div className="h-80 overflow-hidden">
-                  <AspectRatio ratio={4/5} className="bg-muted">
-                    <img 
-                      src={item.image} 
-                      alt={item.name} 
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                    />
-                  </AspectRatio>
-                </div>
-                <CardContent className="p-6">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="font-playfair font-bold text-xl text-burgundy">{item.name}</h3>
-                    <span className="bg-gold text-black text-sm font-bold px-3 py-1 rounded-full flex items-center">
-                      <Tag size={14} className="mr-1" />
-                      ₦{item.price.toLocaleString()}
-                    </span>
+            {sortedDesigns.map((item, index) => {
+              const discountedPrice = calculateDiscountedPrice(item.price);
+              return (
+                <Card 
+                  key={item.id} 
+                  className="gallery-card overflow-hidden shadow-lg opacity-0 animate-slide-up"
+                  style={{ animationDelay: `${0.2 * index}s` }}
+                >
+                  <div className="h-80 overflow-hidden">
+                    <AspectRatio ratio={4/5} className="bg-muted">
+                      <img 
+                        src={item.image} 
+                        alt={item.name} 
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                      />
+                    </AspectRatio>
                   </div>
-                  <p className="text-sm text-muted-foreground mb-2">{item.category}</p>
-                  {item.sizes && <p className="text-xs text-burgundy/70 mb-4">{item.sizes}</p>}
-                  {item.description && <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{item.description}</p>}
-                </CardContent>
-                <CardFooter className="px-6 pb-6 pt-0">
-                  <button 
-                    onClick={() => handleViewDetails(item)}
-                    className="w-full btn-secondary"
-                  >
-                    View Details
-                  </button>
-                </CardFooter>
-              </Card>
-            ))}
+                  <CardContent className="p-6">
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="font-playfair font-bold text-xl text-burgundy">{item.name}</h3>
+                      <div className="text-right">
+                        <div className="text-xs text-gray-500 line-through">₦{item.price.toLocaleString()}</div>
+                        <span className="bg-gold text-black text-sm font-bold px-3 py-1 rounded-full flex items-center">
+                          <Tag size={14} className="mr-1" />
+                          ₦{discountedPrice.toLocaleString()}
+                        </span>
+                      </div>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-2">{item.category}</p>
+                    {item.sizes && <p className="text-xs text-burgundy/70 mb-4">{item.sizes}</p>}
+                    {item.description && <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{item.description}</p>}
+                  </CardContent>
+                  <CardFooter className="px-6 pb-6 pt-0">
+                    <button 
+                      onClick={() => handleViewDetails(item)}
+                      className="w-full btn-secondary"
+                    >
+                      View Details
+                    </button>
+                  </CardFooter>
+                </Card>
+              );
+            })}
 
             {/* Custom Inquiry Card */}
             <Card className="gallery-card overflow-hidden shadow-lg opacity-0 animate-slide-up bg-gradient-to-br from-burgundy to-burgundy/80 text-white">
@@ -282,10 +300,12 @@ const Shop = () => {
                 
                 <div className="space-y-4">
                   <div>
+                    <div className="text-sm text-gray-500 line-through mb-1">₦{selectedItem.price.toLocaleString()}</div>
                     <span className="bg-gold text-black text-lg font-bold px-4 py-2 rounded-full flex items-center w-fit">
                       <Tag size={16} className="mr-2" />
-                      ₦{selectedItem.price.toLocaleString()}
+                      ₦{calculateDiscountedPrice(selectedItem.price).toLocaleString()}
                     </span>
+                    <p className="text-sm text-green-600 font-medium mt-1">30% OFF</p>
                   </div>
                   
                   <div>
@@ -303,7 +323,7 @@ const Shop = () => {
                   <div>
                     <h4 className="font-semibold text-burgundy mb-2">Description:</h4>
                     <p className="text-muted-foreground">
-                      {selectedItem.description || "Handcrafted with premium African fabrics, this elegant piece combines traditional aesthetics with modern design. Perfect for special occasions and celebrations."}
+                      {getProductDescription(selectedItem.name)}
                     </p>
                   </div>
                   
