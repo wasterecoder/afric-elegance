@@ -121,12 +121,12 @@
 .hero-section {
   position: relative;
   background: 
-    linear-gradient(135deg, rgba(128, 0, 32, 0.85) 0%, rgba(212, 175, 55, 0.75) 50%, rgba(128, 0, 32, 0.85) 100%),
-    linear-gradient(45deg, #D4AF37 0%, #800020 25%, #50C878 50%, #D4AF37 75%, #800020 100%);
-  background-size: 400% 400%, 200% 200%;
+    linear-gradient(135deg, rgba(248, 248, 246, 0.9) 0%, rgba(212, 175, 55, 0.2) 30%, rgba(248, 248, 246, 0.9) 70%, rgba(80, 200, 120, 0.15) 100%),
+    linear-gradient(45deg, #F8F8F6 0%, #D4AF37 20%, #F5F5DC 40%, #50C878 60%, #F8F8F6 80%, #D4AF37 100%);
+  background-size: 300% 300%, 400% 400%;
   background-position: 0% 50%, 0% 50%;
   min-height: 90vh;
-  animation: africPattern 20s ease-in-out infinite;
+  animation: elegantFlow 25s ease-in-out infinite;
 }
 
 .hero-section::before {
@@ -137,12 +137,12 @@
   right: 0;
   bottom: 0;
   background-image: 
-    radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(80, 200, 120, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(128, 0, 32, 0.4) 0%, transparent 50%);
-  background-size: 100px 100px, 150px 150px, 80px 80px;
-  background-position: 0 0, 50px 50px, 25px 25px;
-  opacity: 0.8;
+    radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 75% 75%, rgba(80, 200, 120, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(245, 245, 220, 0.3) 0%, transparent 30%);
+  background-size: 200px 200px, 250px 250px, 150px 150px;
+  background-position: 0 0, 100px 100px, 50px 50px;
+  opacity: 0.6;
   z-index: 1;
 }
 
@@ -155,18 +155,18 @@
   bottom: 0;
   background: 
     repeating-linear-gradient(
-      45deg,
+      60deg,
       transparent,
-      transparent 10px,
-      rgba(212, 175, 55, 0.1) 10px,
-      rgba(212, 175, 55, 0.1) 20px
+      transparent 20px,
+      rgba(212, 175, 55, 0.03) 20px,
+      rgba(212, 175, 55, 0.03) 40px
     ),
     repeating-linear-gradient(
-      -45deg,
+      -30deg,
       transparent,
-      transparent 10px,
-      rgba(128, 0, 32, 0.05) 10px,
-      rgba(128, 0, 32, 0.05) 20px
+      transparent 25px,
+      rgba(80, 200, 120, 0.02) 25px,
+      rgba(80, 200, 120, 0.02) 50px
     );
   z-index: 1;
 }
@@ -176,18 +176,18 @@
   z-index: 10;
 }
 
-@keyframes africPattern {
+@keyframes elegantFlow {
   0%, 100% {
     background-position: 0% 50%, 0% 50%;
   }
   25% {
-    background-position: 100% 50%, 50% 100%;
+    background-position: 50% 30%, 25% 75%;
   }
   50% {
-    background-position: 100% 100%, 100% 50%;
+    background-position: 100% 50%, 50% 100%;
   }
   75% {
-    background-position: 50% 100%, 50% 0%;
+    background-position: 50% 70%, 75% 25%;
   }
 }
 
