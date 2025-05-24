@@ -1,4 +1,3 @@
-
 import React from 'react';
 import StudioMap from './StudioMap';
 
@@ -21,7 +20,7 @@ const AboutSection = () => {
           <div>
             <h2 className="section-title">Our Story</h2>
             <p className="mb-6">
-              Afric Chic Elegance was born from a deep love for African culture and a passion for fashion. Our founder, Oluwaseun Adeleke, with over 15 years of experience in the fashion industry, established the brand in Ajah, Lagos State, Nigeria with a mission to showcase the beauty and richness of African textiles and designs to the world.
+              Afric Chic Elegance was born from a deep love for African culture and a passion for fashion. Our founder, Oluwaseun Adeleke, with over 9 years of experience in the fashion industry, established the brand in Ajah, Lagos State, Nigeria with a mission to showcase the beauty and richness of African textiles and designs to the world.
             </p>
             <p className="mb-6">
               We believe that African fashion is not just clothing; it's a statement of identity, a celebration of heritage, and an expression of the continent's vibrant spirit. Every piece we create tells a story of tradition blended with contemporary elegance.

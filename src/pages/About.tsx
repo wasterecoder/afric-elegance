@@ -1,4 +1,3 @@
-
 import React from 'react';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { MapPin } from 'lucide-react';
@@ -169,7 +168,7 @@ const About = () => {
                     <span>Ajah, Lagos State, Nigeria</span>
                   </div>
                   <p className="text-muted-foreground">
-                    With over 15 years in fashion design, Oluwaseun brings her vision of cultural elegance to life through Afric Chic Elegance. Combining traditional African textile knowledge with contemporary design principles, she has built a brand that celebrates heritage while embracing modern aesthetics.
+                    With over 9 years in fashion design, Oluwaseun brings her vision of cultural elegance to life through Afric Chic Elegance. Combining traditional African textile knowledge with contemporary design principles, she has built a brand that celebrates heritage while embracing modern aesthetics.
                   </p>
                   <p className="text-muted-foreground mt-4">
                     Her passion for preserving African cultural identity through fashion has earned her recognition across the industry, and she continues to mentor upcoming designers to ensure the legacy of African fashion endures.
