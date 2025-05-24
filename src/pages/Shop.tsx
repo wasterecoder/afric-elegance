@@ -9,6 +9,7 @@ interface DesignItem {
   id: number;
   name: string;
   price: number;
+  originalPrice: number;
   image: string;
   category: string;
   description?: string;
@@ -21,6 +22,7 @@ const exquisiteDesigns: DesignItem[] = [
     id: 1,
     name: "Navy Chic",
     price: 30000,
+    originalPrice: 35000, // ~15% discount
     image: "/lovable-uploads/d266ae11-9249-4efb-9639-7df4fbcf640b.png",
     category: "Dresses",
     sizes: "Size 6-14"
@@ -29,6 +31,7 @@ const exquisiteDesigns: DesignItem[] = [
     id: 2,
     name: "Raven Black Dress",
     price: 20000,
+    originalPrice: 25000, // 20% discount
     image: "/lovable-uploads/bb1b0860-aeea-467f-954e-888b724a3c14.png",
     category: "Dresses",
     sizes: "Size 6-12"
@@ -37,6 +40,7 @@ const exquisiteDesigns: DesignItem[] = [
     id: 3,
     name: "BW Classic Jumpsuit",
     price: 25000,
+    originalPrice: 31000, // ~20% discount
     image: "/lovable-uploads/d001125d-920c-4a3b-a160-8cb621e01746.png",
     category: "Jumpsuits",
     sizes: "Size 6-12"
@@ -45,6 +49,7 @@ const exquisiteDesigns: DesignItem[] = [
     id: 4,
     name: "Rich Aunty Midi Bubu",
     price: 24000,
+    originalPrice: 28000, // ~15% discount
     image: "/lovable-uploads/9914de1d-6f7e-4c69-b436-6c7691a91de9.png",
     category: "Traditional",
     sizes: "Size 6-14"
@@ -53,6 +58,7 @@ const exquisiteDesigns: DesignItem[] = [
     id: 5,
     name: "Adire Silk",
     price: 28000,
+    originalPrice: 40000, // 30% discount
     image: "/lovable-uploads/a1e66d34-6a00-419f-83e8-73513d704f5d.png",
     category: "Traditional",
     sizes: "Size 6-12 (₦28,000), Size 12&14 (₦30,000)"
@@ -61,6 +67,7 @@ const exquisiteDesigns: DesignItem[] = [
     id: 6,
     name: "Chantilly X Crepe",
     price: 30000,
+    originalPrice: 37000, // ~20% discount
     image: "/lovable-uploads/db2cf8e1-1161-49da-b0fd-d8882e055049.png",
     category: "Dresses",
     sizes: "Size 6-12"
@@ -69,6 +76,7 @@ const exquisiteDesigns: DesignItem[] = [
     id: 7,
     name: "Zayrah Dress",
     price: 22000,
+    originalPrice: 26000, // ~15% discount
     image: "/lovable-uploads/9c4fc432-246f-486b-ad1a-cec140d1b5c6.png",
     category: "Dresses",
     sizes: "Size 6-12"
@@ -81,6 +89,7 @@ const newArrivals: DesignItem[] = [
     id: 8,
     name: "Aso Oke X Ankara Bubu",
     price: 20000,
+    originalPrice: 24000, // ~15% discount
     image: "/lovable-uploads/6b01eb59-750c-44e0-b928-7cb80e8d14b5.png",
     category: "Traditional",
     sizes: "Size 6-14"
@@ -89,6 +98,7 @@ const newArrivals: DesignItem[] = [
     id: 9,
     name: "Jumbo Pant",
     price: 12000,
+    originalPrice: 15000, // 20% discount
     image: "/lovable-uploads/4e05a984-044e-4d04-98a4-ba7be7112e5b.png",
     category: "Bottoms",
     sizes: "Size 6-14"
@@ -97,6 +107,7 @@ const newArrivals: DesignItem[] = [
     id: 10,
     name: "Lace Noire",
     price: 24000,
+    originalPrice: 34000, // ~30% discount
     image: "/lovable-uploads/d5b7ec64-d658-49e4-b6ea-ec5231d3c636.png",
     category: "Sets",
     sizes: "Size 6-12"
@@ -105,6 +116,7 @@ const newArrivals: DesignItem[] = [
     id: 11,
     name: "Ankara Crop Top X Jumbo Pant",
     price: 20000,
+    originalPrice: 25000, // 20% discount
     image: "/lovable-uploads/1343cd95-c434-4bb4-991d-6778eea18fe5.png",
     category: "Sets",
     sizes: "Size 6-14"
@@ -113,10 +125,6 @@ const newArrivals: DesignItem[] = [
 
 // All designs combined
 const allDesigns = [...exquisiteDesigns, ...newArrivals];
-
-const calculateDiscountedPrice = (price: number) => {
-  return Math.round(price * 0.7); // 30% discount
-};
 
 const Shop = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -141,8 +149,7 @@ const Shop = () => {
   };
 
   const handleOrderWhatsApp = (item: DesignItem) => {
-    const discountedPrice = calculateDiscountedPrice(item.price);
-    const message = `Hello! I'm interested in ordering the ${item.name} ${item.sizes ? `(${item.sizes})` : ''} for ₦${discountedPrice.toLocaleString()} (30% off the original price of ₦${item.price.toLocaleString()}). Please provide more details about availability and ordering process.`;
+    const message = `Hello! I'm interested in ordering the ${item.name} ${item.sizes ? `(${item.sizes})` : ''} for ₦${item.price.toLocaleString()} (down from ₦${item.originalPrice.toLocaleString()}). Please provide more details about availability and ordering process.`;
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/2348168334381?text=${encodedMessage}`, '_blank');
   };
@@ -210,7 +217,6 @@ const Shop = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {sortedDesigns.map((item, index) => {
-              const discountedPrice = calculateDiscountedPrice(item.price);
               return (
                 <Card 
                   key={item.id} 
@@ -230,10 +236,10 @@ const Shop = () => {
                     <div className="flex justify-between items-start mb-2">
                       <h3 className="font-playfair font-bold text-xl text-burgundy">{item.name}</h3>
                       <div className="text-right">
-                        <div className="text-xs text-gray-500 line-through">₦{item.price.toLocaleString()}</div>
+                        <div className="text-xs text-gray-500 line-through">₦{item.originalPrice.toLocaleString()}</div>
                         <span className="bg-gold text-black text-sm font-bold px-3 py-1 rounded-full flex items-center">
                           <Tag size={14} className="mr-1" />
-                          ₦{discountedPrice.toLocaleString()}
+                          ₦{item.price.toLocaleString()}
                         </span>
                       </div>
                     </div>
@@ -300,12 +306,14 @@ const Shop = () => {
                 
                 <div className="space-y-4">
                   <div>
-                    <div className="text-sm text-gray-500 line-through mb-1">₦{selectedItem.price.toLocaleString()}</div>
+                    <div className="text-sm text-gray-500 line-through mb-1">₦{selectedItem.originalPrice.toLocaleString()}</div>
                     <span className="bg-gold text-black text-lg font-bold px-4 py-2 rounded-full flex items-center w-fit">
                       <Tag size={16} className="mr-2" />
-                      ₦{calculateDiscountedPrice(selectedItem.price).toLocaleString()}
+                      ₦{selectedItem.price.toLocaleString()}
                     </span>
-                    <p className="text-sm text-green-600 font-medium mt-1">30% OFF</p>
+                    <p className="text-sm text-green-600 font-medium mt-1">
+                      {Math.round(((selectedItem.originalPrice - selectedItem.price) / selectedItem.originalPrice) * 100)}% OFF
+                    </p>
                   </div>
                   
                   <div>
